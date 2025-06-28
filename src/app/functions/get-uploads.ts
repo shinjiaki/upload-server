@@ -14,8 +14,6 @@ const getUploadsInput = z.object({
 
 type GetUploadsInput = z.input<typeof getUploadsInput>
 
-const allowedMimeTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/webp']
-
 type GetUploadsOutput = {
   uploads: {
     id: string
