@@ -36,7 +36,7 @@ export async function exportUploads(
     )
     .toSQL()
 
-  const cursor = pg.unsafe(sql, params as string[]).cursor(1)
+  const cursor = pg.unsafe(sql, params as string[]).cursor(2)
 
   // for await (const rows of cursor) {
   //   console.log(rows)
@@ -78,8 +78,6 @@ export async function exportUploads(
   })
 
   const [{ url }] = await Promise.all([uploadToStorage, convertToCSVPipeline])
-
-  console.log(url)
 
   return makeRight({ reportUrl: url })
 }
